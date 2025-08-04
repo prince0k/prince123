@@ -20,7 +20,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['"Playwrite AU QLD"', 'Inter', 'sans-serif'],
+        playwrite: ['"Playwrite AU QLD"', 'Inter', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

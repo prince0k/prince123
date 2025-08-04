@@ -60,11 +60,12 @@ const Gallery = () => {
                   onClick={() => setSelected(item)}
                 >
                   {item.image && (
-                    <div className="h-48 bg-gray-200 flex items-center justify-center">
+                    <div className="w-full bg-gray-100 rounded-t-lg overflow-hidden">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-contain"
+                        style={{ maxHeight: '400px' }}
                       />
                     </div>
                   )}

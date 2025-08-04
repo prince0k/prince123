@@ -22,6 +22,12 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
+      // Check file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Image size must be less than 5MB. Please choose a smaller image.');
+        return;
+      }
+
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result);
@@ -49,6 +55,11 @@ const GalleryForm = ({ item, onSave, onCancel }) => {
       await onSave(formData);
     } catch (error) {
       console.error('Error saving gallery item:', error);
+      if (error.response?.status === 413) {
+        alert('Image is too large. Please choose a smaller image (under 5MB) or use an image URL instead.');
+      } else {
+        alert('Error saving gallery item. Please try again.');
+      }
     } finally {
       setLoading(false);
     }

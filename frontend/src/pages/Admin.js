@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaTrash, FaCheck, FaSignOutAlt, FaPlus, FaEdit, FaFolder, FaImages, FaBlog } from 'react-icons/fa';
+import { FaEnvelope, FaTrash, FaCheck, FaSignOutAlt, FaPlus, FaEdit, FaFolder, FaImages } from 'react-icons/fa';
 import axios from 'axios';
 import AdminAuth from '../components/AdminAuth';
 import ProjectForm from '../components/ProjectForm';
@@ -157,6 +157,11 @@ const Admin = () => {
       setEditingGallery(null);
     } catch (error) {
       console.error('Error saving gallery:', error);
+      if (error.response?.status === 413) {
+        alert('Image is too large. Please choose a smaller image (under 5MB) or use an image URL instead.');
+      } else {
+        alert('Error saving gallery item. Please try again.');
+      }
       throw error;
     }
   };
@@ -517,11 +522,12 @@ const Admin = () => {
                         className="border rounded-lg p-4 hover:shadow-md transition-shadow duration-200"
                       >
                         {item.image && (
-                          <div className="h-32 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+                          <div className="w-full mb-4 bg-gray-100 rounded-lg overflow-hidden">
                             <img
                               src={item.image}
                               alt={item.title}
-                              className="w-full h-full object-cover rounded-lg"
+                              className="w-full h-auto object-contain"
+                              style={{ maxHeight: '300px' }}
                             />
                           </div>
                         )}

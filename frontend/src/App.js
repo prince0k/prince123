@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import AnimatedHamburgerMenu from './components/AnimatedHamburgerMenu';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import Gallery from './pages/Gallery';
+import AnimatedMenuPage from './pages/AnimatedMenuPage';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <Navbar />
+        <AnimatedHamburgerMenu />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />

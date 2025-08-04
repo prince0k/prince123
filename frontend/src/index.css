@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,9 +10,11 @@
   }
   
   body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playwrite AU QLD', Inter, sans-serif;
   }
 }
+
+
 
 @layer components {
   .btn-primary {
@@ -27,5 +31,20 @@
   
   .container-max {
     @apply max-w-7xl mx-auto;
+  }
+
+  .custom-cursor:hover {
+    cursor: url('C:\Users\princ\my-project\new_react_project\restart\frontend\public\cursor.png'), auto;
+  }
+
+
+  .tilt-prism-400 {
+    font-family: "Tilt Prism", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "XROT" 0,
+      "YROT" 0;
   }
 } 

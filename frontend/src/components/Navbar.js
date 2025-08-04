@@ -11,6 +11,7 @@ const Navbar = () => {
     { name: 'Projects', path: '/projects' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Animated Menu', path: '/animated-menu' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -20,8 +21,8 @@ const Navbar = () => {
       <div className="container-max px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="text-2xl font-bold text-primary-600">
-            Portfolio
+          <Link to="/" className="text-2xl font-bold text-primary-600 font-playwrite">
+            Prince Sharma
           </Link>
 
           {/* Desktop Navigation */}
